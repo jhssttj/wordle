@@ -11,7 +11,7 @@ export function WordleMain({answer}) {
   }, [handleKeyup])
 
   return (
-    <div>WordleMain</div>
+    <div>{currentGuess}</div>
   )
 }
 

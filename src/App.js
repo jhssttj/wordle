@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import {WordleMain} from './components/WordleMain';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <h1>{answer}</h1>
+      <WordleMain answer={answer}/>
     </div>
   );
 }
