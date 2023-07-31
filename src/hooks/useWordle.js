@@ -10,6 +10,26 @@ const useWordle = (solution) => {
 
   const formatGuess = () => {
     console.log('format guess')
+    let solutionArray = [...solution]
+    let formattedGuess = [...currentGuess].map((l)=> {
+      return {key: l, color: 'grey'}
+    })
+
+    formattedGuess.forEach((l,i) => {
+      if (solutionArray[i] === l.key) {
+        formattedGuess[i].color = 'green'
+        solutionArray[i] = null
+      }
+    })
+
+    formattedGuess.forEach((l,i) => {
+      if (solutionArray.includes(l.key) && l.color !=='green'){
+        formattedGuess[i].color = 'yellow'
+        solutionArray[solutionArray.indexOf(l.key)] = null;
+
+      }
+    })
+    return formattedGuess;
   }
 
   const addNewGuess = () => {}
@@ -29,8 +49,8 @@ const useWordle = (solution) => {
         console.log('Word isnt 5 chara length')
         return;
       }
-
-      formatGuess();
+      const formatted = formatGuess();
+      console.log(formatted)
     }
 
     if (key === 'Backspace') {
