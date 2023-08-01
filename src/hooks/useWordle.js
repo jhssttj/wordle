@@ -3,7 +3,7 @@ import {useState} from 'react';
 const useWordle = (answer) => {
 
   const [turn, setTurn] = useState(0);
-  const [currentGuess, setCurrentGuess] = useState('');
+  const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [history, setHistory] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -35,36 +35,43 @@ const useWordle = (answer) => {
   const addNewGuess = () => {}
 
   const handleInput = ({key}) => {
+    //Input to confirm entry
     if (key ==='Enter') {
-      if (turn > 5) {
-        console.log("Turn exceed")
-        return;
-      }
-      if (history.includes(currentGuess)) {
-        console.log("Duplicate entry")
-        return;
-      }
-
+      //Check entry word length 
       if (currentGuess.length !== 5) {
         console.log('Word isnt 5 chara length')
         return;
       }
-      const formatted = formatGuess();
-      console.log(formatted)
+
+      //Check turn limit
+      if (turn > 5) {
+        console.log("Turn exceed")
+        return;
+      }
+      
+      //Check duplicate entry
+      // if (history.includes(currentGuess)) {
+      //   console.log("Duplicate entry")
+      //   return;
+      // }
+
+      //If entry is good, trigger proceeding functions and actions
+
+      //Update turn
+      setTurn((prev) => prev+ 1)
+
+      // const formatted = formatGuess();
+      // console.log(formatted)
     }
 
+    //Input to delete letters
     if (key === 'Backspace') {
-      setCurrentGuess((prev)=> {
-        return prev.slice(0,-1);
-      })
+      setCurrentGuess((prev)=> prev.slice(0,-1))
     }
-    
-    if (/^[A-Za-z]$/.test(key)) {
-      if (currentGuess.length < 5) {
-        setCurrentGuess((prev)=>{
-          return prev + key;
-        })
-      }  
+
+    //Input to add letters
+    if (/^[A-Za-z]$/.test(key) && currentGuess.length < 5) {
+      setCurrentGuess((prev)=> prev + key)
     }
   }
 
