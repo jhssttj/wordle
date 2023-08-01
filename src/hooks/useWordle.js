@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-const useWordle = (solution) => {
+const useWordle = (answer) => {
 
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState('');
@@ -9,8 +9,8 @@ const useWordle = (solution) => {
   const [isCorrect, setIsCorrect] = useState(false);
 
   const formatGuess = () => {
-    console.log('format guess')
-    let solutionArray = [...solution]
+    let solutionArray = answer
+    console.log(typeof(solutionArray))
     let formattedGuess = [...currentGuess].map((l)=> {
       return {key: l, color: 'grey'}
     })
@@ -34,7 +34,7 @@ const useWordle = (solution) => {
 
   const addNewGuess = () => {}
 
-  const handleKeyup = ({key}) => {
+  const handleInput = ({key}) => {
     if (key ==='Enter') {
       if (turn > 5) {
         console.log("Turn exceed")
@@ -58,7 +58,7 @@ const useWordle = (solution) => {
         return prev.slice(0,-1);
       })
     }
-
+    
     if (/^[A-Za-z]$/.test(key)) {
       if (currentGuess.length < 5) {
         setCurrentGuess((prev)=>{
@@ -68,7 +68,7 @@ const useWordle = (solution) => {
     }
   }
 
-  return {turn, currentGuess, guesses, isCorrect, handleKeyup}
+  return {turn, currentGuess, guesses, isCorrect, handleInput}
 
 }
 
