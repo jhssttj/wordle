@@ -5,7 +5,6 @@ import {WordleMain} from './components/WordleMain';
 function App() {
 
   const [answer, setAnswer] = useState("");
-  const [count, setCount] = useState(0)
 
   useEffect(() => {
     fetch("https://random-word-api.vercel.app/api?words=1&length=5")

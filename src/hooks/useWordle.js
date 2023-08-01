@@ -5,7 +5,7 @@ const useWordle = (answer) => {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState(["initial"]);
   const [isCorrect, setIsCorrect] = useState(false);
 
   const formatGuess = () => {
@@ -44,7 +44,7 @@ const useWordle = (answer) => {
       }
 
       //Check turn limit
-      if (turn > 5) {
+      if (turn >= 5) {
         console.log("Turn exceed")
         return;
       }
@@ -58,7 +58,10 @@ const useWordle = (answer) => {
       //If entry is good, trigger proceeding functions and actions
 
       //Update turn
-      setTurn((prev) => prev+ 1)
+      setTurn((prev) => prev + 1)
+
+      //Update history
+      // setHistory(history.push(currentGuess))
 
       // const formatted = formatGuess();
       // console.log(formatted)
@@ -75,7 +78,7 @@ const useWordle = (answer) => {
     }
   }
 
-  return {turn, currentGuess, guesses, isCorrect, handleInput}
+  return {turn, history, currentGuess, guesses, isCorrect, handleInput}
 
 }
 
