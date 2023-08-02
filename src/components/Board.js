@@ -5,9 +5,19 @@ import {AppContext} from '../App'
 function Board() {
   const {board} = useContext(AppContext);
 
+  const renderLetter = (attemptVal) => {
+    const boardRow = board[attemptVal];
+    console.log(boardRow)
+    const letters = boardRow.map((i,y)=> {
+      console.log(boardRow[i])
+      return <Letter key={y} letter={boardRow[i]}/>
+    })
+    return letters;
+  }
+
   const renderBoardContent = () => {
     for (let i = 0; i < board.length; i++) {
-      console.log(board[i])
+      
     }
 
     return (<div className="flex justify-around">
@@ -18,33 +28,9 @@ function Board() {
   return (
     <div className="board border-2 border-black h-auto w-auto flex flex-col m-8 ">
       <div className="flex justify-around">
-        <Letter letterPos={0} attemptVal={0}/>
-        <Letter letterPos={1} attemptVal={0}/>
-        <Letter letterPos={2} attemptVal={0}/>
-        <Letter letterPos={3} attemptVal={0}/>
-        <Letter letterPos={4} attemptVal={0}/>
+        {renderLetter(0)}
       </div>
-      <div className="flex justify-around">
-        <Letter letterPos={0} attemptVal={1}/>
-        <Letter letterPos={1} attemptVal={1}/>
-        <Letter letterPos={2} attemptVal={1}/>
-        <Letter letterPos={3} attemptVal={1}/>
-        <Letter letterPos={4} attemptVal={1}/>
-      </div>
-      <div className="flex justify-around">
-        <Letter letterPos={0} attemptVal={2}/>
-        <Letter letterPos={1} attemptVal={2}/>
-        <Letter letterPos={2} attemptVal={2}/>
-        <Letter letterPos={3} attemptVal={2}/>
-        <Letter letterPos={4} attemptVal={2}/>
-      </div>
-      <div className="flex justify-around">
-        <Letter letterPos={0} attemptVal={3}/>
-        <Letter letterPos={1} attemptVal={3}/>
-        <Letter letterPos={2} attemptVal={3}/>
-        <Letter letterPos={3} attemptVal={3}/>
-        <Letter letterPos={4} attemptVal={3}/>
-      </div>
+
       <div className="row"></div>
       {renderBoardContent()}
     </div>
