@@ -2,29 +2,16 @@ import React, { useContext } from 'react'
 import { AppContext } from '../App'
 
 function Key({keyValue}) {
-    const {board, setBoard, inputPosition, setInputPosition} = useContext(AppContext);
+    const { onSelectLetter, onDelete, onEnter } = useContext(AppContext);
 
   const selectLetter = () => {
     if (keyValue === "ENTER") {
-      if (inputPosition.letterPosition !== 5) return;
-      setInputPosition({attempt: inputPosition.attempt + 1, letterPosition: 0})
+      onEnter();
     } else if (keyValue === "DELETE") {
-        if (inputPosition.letterPosition === 0) return;
-        const newBoard = [...board];
-        newBoard[inputPosition.attempt][inputPosition.letterPosition-1] = "";
-        setInputPosition({...inputPosition,letterPosition:inputPosition.letterPosition-1})
-        setBoard(newBoard);
+      onDelete();
     } else {
-      if (inputPosition.letterPosition > 4) return;
-      const newBoard = [...board];
-      newBoard[inputPosition.attempt][inputPosition.letterPosition] = keyValue
-      setBoard(newBoard);
-      setInputPosition({...inputPosition,letterPosition:inputPosition.letterPosition+1})
+      onSelectLetter(keyValue);
     }
-
-    
-
-
   }
 
   let smallKeyCSS = keyValue==="ENTER" || keyValue ==="DELETE"? "text-xs":""
