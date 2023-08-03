@@ -8,6 +8,7 @@ export const AppContext = createContext();
 function App() {
 
   const [board, setBoard] = useState(boardDefault);
+  const [inputPosition, setInputPosition] = useState({attempt:0, letterPosition:0})
 
   // useEffect(() => {
   //   fetch("https://random-word-api.vercel.app/api?words=1&length=5")
@@ -20,7 +21,7 @@ function App() {
       <nav className="border-black border-b-2 w-full h-[50px] flex justify-center items-center">
         <h1 className="h-full text-4xl font-bold">Wordle</h1>
       </nav>
-      <AppContext.Provider value={{board, setBoard}}>
+      <AppContext.Provider value={{board, setBoard, inputPosition, setInputPosition}}>
         <Board/>
         <Keyboard/>
       </AppContext.Provider>
