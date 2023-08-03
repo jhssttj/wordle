@@ -1,7 +1,7 @@
 import {useState, useEffect, createContext} from "react";
 import Keyboard from './components/Keyboard';
 import Board from './components/Board';
-import { boardDefault } from "./Words";
+import { boardDefault } from "./Data";
 
 export const AppContext = createContext();
 

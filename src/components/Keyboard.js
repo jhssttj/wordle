@@ -1,15 +1,26 @@
 import React from 'react'
+import {keyRow1, keyRow2, keyRow3} from '../Data';
+import Key from './Key';
 
 function Keyboard() {
-  const keyRow1 = ["Q","W","E","R","T","Y","U","I","O","P"];
-  const keyRow2 = ["A","S","D","F","G","H","J","K","L"];
-  const keyRow3 = ["Z","X","C","V","B","N","M"];
+
+  const renderKeys = (keyRow) => {
+    return keyRow.map((key) => {
+      return <Key keyValue={key}/>
+    })
+  }
 
   return (
-    <div className="">
-      <div className=""></div>
-      <div className=""></div>
-      <div className=""></div>
+    <div className="border-2 border-black flex flex-col items-center">
+      <div className="flex space-evenly">
+        {renderKeys(keyRow1)}
+      </div>
+      <div className="flex space-evenly">
+        {renderKeys(keyRow2)}
+      </div>
+      <div className="flex space-evenly">
+        {renderKeys(keyRow3)}
+      </div>
       
     </div>
   )
