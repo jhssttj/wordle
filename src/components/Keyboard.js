@@ -5,8 +5,8 @@ import Key from './Key';
 function Keyboard() {
 
   const renderKeys = (keyRow) => {
-    return keyRow.map((key) => {
-      return <Key keyValue={key}/>
+    return keyRow.map((key, index) => {
+      return <Key key={index} keyValue={key}/>
     })
   }
 
@@ -19,7 +19,9 @@ function Keyboard() {
         {renderKeys(keyRow2)}
       </div>
       <div className="flex space-evenly">
+        <Key keyValue={"ENTER"}/>
         {renderKeys(keyRow3)}
+        <Key keyValue={"DELETE"}/>
       </div>
       
     </div>
