@@ -6,34 +6,22 @@ import {AppContext} from '../App'
 function Keyboard() {
   const { onSelectLetter, onDelete, onEnter } = useContext(AppContext);
 
-  const handleKeyboard = useCallback((event) => {
+  const handleKey = useCallback((event) => {
     if (event.key === "Enter") {
       onEnter();
     } else if (event.key === "Backspace") {
       onDelete();
     } else {
-      keyRow1.forEach((key) => {
-        if (event.key.toUpperCase() === key) {
-          onSelectLetter(key)
-        }
-      })
-      keyRow2.forEach((key) => {
-        if (event.key.toUpperCase() === key) {
-          onSelectLetter(key)
-        }
-      })
-      keyRow3.forEach((key) => {
-        if (event.key.toUpperCase() === key) {
-          onSelectLetter(key)
-        }
-      })
+      if (/^[A-Za-z]$/.test(event.key)){
+        onSelectLetter(event.key.toUpperCase())
+      }
     }
   }, [onEnter,onDelete,onSelectLetter])
 
   useEffect(() => {
-    window.addEventListener("keydown", handleKeyboard)
-    return () => window.removeEventListener('keydown', handleKeyboard)
-  }, [handleKeyboard])
+    window.addEventListener("keyup", handleKey)
+    return () => window.removeEventListener('keyup', handleKey)
+  }, [handleKey])
 
   const renderKeys = (keyRow) => {
     return keyRow.map((key, index) => {
@@ -42,7 +30,7 @@ function Keyboard() {
   }
 
   return (
-    <div className="border-2 border-black flex flex-col items-center" onKeyDown={handleKeyboard}>
+    <div className="border-2 border-black flex flex-col items-center" onKeyUp={handleKey}>
       <div className="flex space-evenly">
         {renderKeys(keyRow1)}
       </div>
