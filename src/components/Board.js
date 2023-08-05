@@ -9,15 +9,15 @@ function Board() {
   //Render rows for letters to go in
   const renderRows = () => {
     const rows = board.map((row, rowIndex) => {
-      return <div key={rowIndex} className="flex justify-content">{renderLetters(row)}</div>
+      return <div key={rowIndex} className="flex justify-content">{renderLetters(row, rowIndex)}</div>
     })
     
     return rows;
   }
   //Render letters of the current row
-  const renderLetters = (row) => {
+  const renderLetters = (row, attemptValue) => {
     const letters = row.map((letter,index)=> {
-      return <Letter key={index} letter={letter}/>
+      return <Letter key={index} letter={letter} letterPosition={index} attemptValue={attemptValue}/>
     })
     return letters;
   }
