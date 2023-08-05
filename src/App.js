@@ -29,10 +29,18 @@ function App() {
 
   const onEnter = () => {
     if (inputPosition.letterPosition !== 5) return;
+    let currentWord = "";
+    for (let i = 0; i < 5; i ++) {
+      currentWord += board[inputPosition.attempt][i]
+    }
+    if (currentWord === correctWord) {
+      console.log("CORRECT")
+      return;
+    }
     setInputPosition({attempt: inputPosition.attempt + 1, letterPosition: 0})
   }
   // useEffect(() => {
-  //   fetch("https://random-word-api.vercel.app/api?words=1&length=5")
+  //   fetch("https://random-word-api.vercel.app/api?words=1&length=5&type=uppercase")
   //     .then((response) => {return response.json()})
   //     .then((answer) => {setAnswer(answer[0])})
   // }, [])
