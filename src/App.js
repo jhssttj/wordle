@@ -9,6 +9,7 @@ function App() {
 
   const [board, setBoard] = useState(boardDefault);
   const [inputPosition, setInputPosition] = useState({attempt:0, letterPosition:0})
+  const [disabledLetters, setDisabledLetters] = useState([])
   const correctWord = "RIGHT";
 
   const onSelectLetter = (keyValue) => {
@@ -50,7 +51,7 @@ function App() {
       <nav className="border-black border-b-2 w-full h-[50px] flex justify-center items-center">
         <h1 className="h-full text-4xl font-bold">Wordle</h1>
       </nav>
-      <AppContext.Provider value={{board, setBoard, inputPosition, setInputPosition, onSelectLetter, onDelete, onEnter, correctWord}}>
+      <AppContext.Provider value={{board, setBoard, inputPosition, setInputPosition, onSelectLetter, onDelete, onEnter, correctWord, disabledLetters, setDisabledLetters}}>
         <Board/>
         <Keyboard/>
       </AppContext.Provider>

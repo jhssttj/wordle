@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../App'
 
-function Key({keyValue}) {
+function Key({keyValue, disabled}) {
     const { onSelectLetter, onDelete, onEnter } = useContext(AppContext);
 
   const selectLetter = () => {
@@ -15,9 +15,10 @@ function Key({keyValue}) {
   }
 
   let smallKeyCSS = keyValue==="ENTER" || keyValue ==="DELETE"? "text-xs":""
+  let disabledKeyCSS = disabled? "bg-gray":""
 
   return (
-    <div className={`border-2 border-black m-1 min-h-[50px] min-w-[50px] items-center flex justify-center ${smallKeyCSS}`}
+    <div className={`border-2 border-black m-1 min-h-[50px] min-w-[50px] items-center flex justify-center ${smallKeyCSS} ${disabledKeyCSS}`}
     onClick={selectLetter}>
       {keyValue}
     </div>
