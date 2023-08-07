@@ -3,12 +3,11 @@ import { AppContext } from '../App'
 
 
 function Letter({letter, letterPosition, attemptValue}) {
-  const {correctWord, inputPosition, disabledLetters, setDisabledLetters} = useContext(AppContext);
+  const {correctWord, inputPosition, setDisabledLetters} = useContext(AppContext);
   const currentAttempt = inputPosition.attempt;
-
   const correct = correctWord[letterPosition] === letter;
   const almost = !correct && letter !== "" && correctWord.includes(letter);
-  const letterStatus =currentAttempt > attemptValue && (  correct ? "bg-green" : almost ? "bg-yellow" : "bg-gray");
+  const letterStatus = currentAttempt > attemptValue && (  correct ? "bg-green" : almost ? "bg-yellow" : "bg-gray");
 
   useEffect(() => {
     if (letter !== "" && !correct && !almost) {
