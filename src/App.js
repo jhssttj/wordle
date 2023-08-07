@@ -12,7 +12,7 @@ function App() {
   const [inputPosition, setInputPosition] = useState({attempt:0, letterPosition:0})
   const [disabledLetters, setDisabledLetters] = useState([])
   const [gameOver, setGameOver] = useState({gameOver: false, guessedWord: false});
-  const correctWord = "RIGHT";
+  const [answer, setAnswer] = useState("");
 
   const onSelectLetter = (keyValue) => {
     if (inputPosition.letterPosition > 4) return;
@@ -36,7 +36,10 @@ function App() {
     for (let i = 0; i < 5; i ++) {
       currentWord += board[inputPosition.attempt][i]
     }
-    if (currentWord === correctWord) {
+
+    setInputPosition({attempt: inputPosition.attempt + 1, letterPosition: 0})
+    
+    if (currentWord === answer) {
       setGameOver({gameOver:true, guessedWord: true})
       return;
     }
@@ -44,14 +47,13 @@ function App() {
       setGameOver({gameOver:true, guessedWord: false})
       return;
     }
-    setInputPosition({attempt: inputPosition.attempt + 1, letterPosition: 0})
   }
 
-  // useEffect(() => {
-  //   fetch("https://random-word-api.vercel.app/api?words=1&length=5&type=uppercase")
-  //     .then((response) => {return response.json()})
-  //     .then((answer) => {setAnswer(answer[0])})
-  // }, [])
+  useEffect(() => {
+    fetch("https://random-word-api.vercel.app/api?words=1&length=5&type=uppercase")
+      .then((response) => {return response.json()})
+      .then((answer) => {setAnswer(answer[0])})
+  }, [])
 
   return (
     <div className="App flex flex-col items-center">
@@ -66,7 +68,7 @@ function App() {
         onSelectLetter, 
         onDelete, 
         onEnter, 
-        correctWord, 
+        answer, 
         disabledLetters, 
         setDisabledLetters, 
         setGameOver, 
