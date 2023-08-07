@@ -40,8 +40,8 @@ function App() {
       setGameOver({gameOver:true, guessedWord: true})
       return;
     }
-    if (inputPosition.attempt === 5) {
-      setGameOver({setGameOver:true, guessedWord: false})
+    if (inputPosition.attempt === board.length - 1) {
+      setGameOver({gameOver:true, guessedWord: false})
       return;
     }
     setInputPosition({attempt: inputPosition.attempt + 1, letterPosition: 0})
