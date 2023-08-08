@@ -8,7 +8,7 @@ function Letter({letter, letterPosition, attemptValue}) {
   const correct = answer[letterPosition] === letter;
   const almost = !correct && letter !== "" && answer.includes(letter);
   const letterStatus = currentAttempt > attemptValue && (  correct ? "bg-green" : almost ? "bg-yellow" : "bg-gray");
-  const animationStatus = currentAttempt > attemptValue ? "animate-[flip_1000ms_ease_forwards]": "";
+  const animationStatus = currentAttempt > attemptValue ? `animate-flip animation-delay-1000 delay-1000`: "";
 
   useEffect(() => {
     if (letter !== "" && !correct && !almost) {

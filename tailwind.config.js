@@ -14,11 +14,13 @@ module.exports = {
           '50%': {transform: 'scaleX(0)'}
         }
       },
-      // animation: {
-      //   flip: 'flip 1000ms ease forwards'
-      // }
+      animation: {
+        flip: 'flip 1000ms ease forwards'
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animation-delay"),
+  ],
 }
 
