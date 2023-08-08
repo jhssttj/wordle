@@ -10,17 +10,15 @@ module.exports = {
       },
       keyframes: {
         flip: {
-          '0%, 100%': {transform: 'scaleX(1)'},
-          '50%': {transform: 'scaleX(0)'}
+          '0%': {transform: 'rotateX(0deg)'},
+          '100%': {transform: 'rotateX(359deg)'}
         }
       },
       animation: {
-        flip: 'flip 1000ms ease forwards'
+        flip: 'flip 2000ms ease forwards'
       }
     },
   },
-  plugins: [
-    require("tailwindcss-animation-delay"),
-  ],
+  plugins: [],
 }
 

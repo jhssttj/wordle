@@ -7,3 +7,36 @@
 .App {
   font-family: 'Oxygen', sans-serif;
 }
+
+#Animation0{
+  animation-delay: 0s;
+  transition-delay: 0s;
+}
+#Animation1{
+  animation-delay: 0.25s;
+  transition-delay: 0.25s;
+}
+#Animation2{
+  animation-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+#Animation3{
+  animation-delay: 0.75s;
+  transition-delay: 0.75s;
+}
+#Animation4{
+  animation-delay: 1s;
+  transition-delay: 1s;
+}
+#Animation5{
+  animation-delay: 1.25s;
+  transition-delay: 1.25s;
+}
+#Animation6{
+  animation-delay: 1.5s;
+  transition-delay: 1.5s;
+}
+#Animation7{
+  animation-delay: 1.75s;
+  transition-delay: 1.75s;
+}
