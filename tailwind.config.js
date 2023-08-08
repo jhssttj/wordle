@@ -7,6 +7,12 @@ module.exports = {
         green: "#6AAA64",
         yellow: "#C9B458",
         gray: "#787C7E",
+      },
+      keyframes: {
+        flip: {
+          '0%, 100%': {transform: 'scaleY(1)'},
+          '50%': {transform: 'scaleY(0)'}
+        }
       }
     },
   },
