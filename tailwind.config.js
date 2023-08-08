@@ -10,12 +10,12 @@ module.exports = {
       },
       keyframes: {
         flip: {
-          '0%': {transform: 'rotateX(0deg)'},
-          '100%': {transform: 'rotateX(359deg)'}
+          '0%, 100%': {transform: 'scaleY(1)'},
+          '50%': {transform: 'scaleY(0)'}
         }
       },
       animation: {
-        flip: 'flip 2000ms ease forwards'
+        flip: 'flip 500ms linear forwards'
       }
     },
   },

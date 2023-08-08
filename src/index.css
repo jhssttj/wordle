@@ -10,33 +10,33 @@
 
 #Animation0{
   animation-delay: 0s;
-  transition-delay: 0s;
-}
-#Animation1{
-  animation-delay: 0.25s;
   transition-delay: 0.25s;
 }
-#Animation2{
+#Animation1{
   animation-delay: 0.5s;
-  transition-delay: 0.5s;
-}
-#Animation3{
-  animation-delay: 0.75s;
   transition-delay: 0.75s;
 }
-#Animation4{
+#Animation2{
   animation-delay: 1s;
-  transition-delay: 1s;
-}
-#Animation5{
-  animation-delay: 1.25s;
   transition-delay: 1.25s;
 }
-#Animation6{
+#Animation3{
   animation-delay: 1.5s;
-  transition-delay: 1.5s;
+  transition-delay: 1.75s;
+}
+#Animation4{
+  animation-delay: 2s;
+  transition-delay: 2.25s;
+}
+#Animation5{
+  animation-delay: 2.5s;
+  transition-delay: 2.75s;
+}
+#Animation6{
+  animation-delay: 3s;
+  transition-delay: 3.25s;
 }
 #Animation7{
-  animation-delay: 1.75s;
-  transition-delay: 1.75s;
+  animation-delay: 3.5s;
+  transition-delay: 3.75s;
 }
