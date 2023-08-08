@@ -13,6 +13,9 @@ module.exports = {
           '0%, 100%': {transform: 'scaleY(1)'},
           '50%': {transform: 'scaleY(0)'}
         }
+      },
+      animation: {
+        flip: 'flip 500ms ease forwards'
       }
     },
   },
