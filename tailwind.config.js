@@ -10,13 +10,13 @@ module.exports = {
       },
       keyframes: {
         flip: {
-          '0%, 100%': {transform: 'scaleY(1)'},
-          '50%': {transform: 'scaleY(0)'}
+          '0%, 100%': {transform: 'scaleX(1)'},
+          '50%': {transform: 'scaleX(0)'}
         }
       },
-      animation: {
-        flip: 'flip 500ms ease forwards'
-      }
+      // animation: {
+      //   flip: 'flip 1000ms ease forwards'
+      // }
     },
   },
   plugins: [],
