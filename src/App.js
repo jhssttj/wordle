@@ -11,6 +11,7 @@ function App() {
   const [board, setBoard] = useState(boardDefault);
   const [inputPosition, setInputPosition] = useState({attempt:0, letterPosition:0})
   const [disabledLetters, setDisabledLetters] = useState([])
+  const [almostLetters, setAlmostLetters] = useState([])
   const [correctLetters, setCorrectLetters] = useState([])
   const [gameOver, setGameOver] = useState({gameOver: false, guessedWord: false});
   const [answer, setAnswer] = useState("");
@@ -72,6 +73,8 @@ function App() {
         answer, 
         disabledLetters, 
         setDisabledLetters, 
+        almostLetters, 
+        setAlmostLetters, 
         correctLetters, 
         setCorrectLetters, 
         setGameOver, 

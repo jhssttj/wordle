@@ -3,7 +3,7 @@ import { AppContext } from '../App'
 
 
 function Letter({letter, letterPosition, attemptValue}) {
-  const {answer, inputPosition, setDisabledLetters, setCorrectLetters} = useContext(AppContext);
+  const {answer, inputPosition, setDisabledLetters,setAlmostLetters, setCorrectLetters} = useContext(AppContext);
   const currentAttempt = inputPosition.attempt;
   const correct = answer[letterPosition] === letter;
   const almost = !correct && letter !== "" && answer.includes(letter);
@@ -17,6 +17,9 @@ function Letter({letter, letterPosition, attemptValue}) {
     } 
     if (correct && !almost) {
       setCorrectLetters((prev) => [...prev, letter]);
+    }
+    if (almost && !correct) {
+      setAlmostLetters((prev) => [...prev, letter]);
     }
   },[currentAttempt])
 

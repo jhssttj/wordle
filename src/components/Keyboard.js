@@ -4,7 +4,7 @@ import Key from './Key';
 import {AppContext} from '../App'
 
 function Keyboard() {
-  const { onSelectLetter, onDelete, onEnter, disabledLetters, correctLetters } = useContext(AppContext);
+  const { onSelectLetter, onDelete, onEnter, disabledLetters, almostLetters, correctLetters } = useContext(AppContext);
 
   const handleKey = useCallback((event) => {
     if (event.key === "Enter") {
@@ -25,7 +25,7 @@ function Keyboard() {
 
   const renderKeys = (keyRow) => {
     return keyRow.map((key, index) => {
-      return <Key key={index} keyValue={key} disabled={disabledLetters.includes(key)} correct={correctLetters.includes(key)}/>
+      return <Key key={index} keyValue={key} disabled={disabledLetters.includes(key)} almost={almostLetters.includes(key)} correct={correctLetters.includes(key)}/>
     })
   }
 
