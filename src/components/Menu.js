@@ -6,22 +6,36 @@ function Menu() {
 
   const { attempts, setAttempts, ansLength, setAnsLength } = useContext(AppContext);
   
+  const nextAnsLength = () => {
+    setAnsLength(ansLength===8?3:ansLength+1);
+  }
+  const prevAnsLength = () => {
+    setAnsLength(ansLength===3?8:ansLength-1);
+  }
+
+  const nextAttemptLength = () => {
+    setAttempts(attempts===10?2:attempts+1);
+  }
+  const prevAttmptLength = () => {
+    setAttempts(attempts===2?10:attempts-1);
+  }
+
   return (
     <div className="">
         <div className="">
           <h1>Word Length</h1>
           <div className="flex">
-            <FaArrowAltCircleLeft/>
+            <FaArrowAltCircleLeft onClick={prevAnsLength}/>
             <p>{ansLength}</p>
-            <FaArrowAltCircleRight/>
+            <FaArrowAltCircleRight onClick={nextAnsLength}/>
           </div>
         </div>
         <div className="">
           <h1>Attempt Number</h1>
           <div className="flex">
-            <FaArrowAltCircleLeft/>
+            <FaArrowAltCircleLeft onClick={prevAttmptLength}/>
             <p>{attempts}</p>
-            <FaArrowAltCircleRight/>
+            <FaArrowAltCircleRight onClick={nextAttemptLength}/>
           </div>
         </div>
         <button>PLAY</button>
