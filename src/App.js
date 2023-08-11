@@ -3,6 +3,7 @@ import Keyboard from './components/Keyboard';
 import Board from './components/Board';
 import { boardDefault } from "./Data";
 import GameOver from "./components/GameOver";
+import Menu from './components/Menu';
 
 export const AppContext = createContext();
 
@@ -15,6 +16,8 @@ function App() {
   const [correctLetters, setCorrectLetters] = useState([])
   const [gameOver, setGameOver] = useState({gameOver: false, guessedWord: false});
   const [answer, setAnswer] = useState("");
+  const [attempts, setAttempts] = useState(6);
+  const [ansLength, setAnsLength] = useState(5);
 
   const onSelectLetter = (keyValue) => {
     if (inputPosition.letterPosition > 4) return;
@@ -78,8 +81,13 @@ function App() {
         correctLetters, 
         setCorrectLetters, 
         setGameOver, 
-        gameOver
+        gameOver,
+        attempts,
+        setAttempts,
+        ansLength,
+        setAnsLength,
       }}>
+        <Menu/>
         <Board/>
         {gameOver.gameOver?<GameOver/>:<Keyboard/>}
       </AppContext.Provider>
