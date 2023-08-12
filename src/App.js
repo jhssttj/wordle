@@ -110,7 +110,8 @@ function App() {
         restartFunction
       }}>
         {gameStart? <Board/>:<Menu/>}
-        {gameOver.gameOver? <GameOver/>:<Keyboard/>}
+        {gameOver.gameOver && gameStart && <GameOver/>}
+        {!gameOver.gameOver && gameStart && <Keyboard/>}
       </AppContext.Provider>
     </div>
   );
