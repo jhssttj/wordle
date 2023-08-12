@@ -38,7 +38,7 @@ function Menu() {
             <FaArrowAltCircleRight onClick={nextAttemptLength}/>
           </div>
         </div>
-        <button onClick={setGameStart(true)}>PLAY</button>
+        <button onClick={()=>setGameStart(true)}>PLAY</button>
     </div>
   )
 }
