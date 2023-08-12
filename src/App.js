@@ -20,7 +20,7 @@ function App() {
   const [board, setBoard] = useState(null);
   
   const onSelectLetter = (keyValue) => {
-    if (inputPosition.letterPosition > 4) return;
+    if (inputPosition.letterPosition > ansLength-1) return;
     const newBoard = [...board];
     newBoard[inputPosition.attempt][inputPosition.letterPosition] = keyValue
     setBoard(newBoard);
@@ -36,9 +36,9 @@ function App() {
   }
   
   const onEnter = () => {
-    if (inputPosition.letterPosition !== 5) return;
+    if (inputPosition.letterPosition !== ansLength) return;
     let currentWord = "";
-    for (let i = 0; i < 5; i ++) {
+    for (let i = 0; i < ansLength; i ++) {
       currentWord += board[inputPosition.attempt][i]
     }
 
@@ -52,6 +52,19 @@ function App() {
       setGameOver({gameOver:true, guessedWord: false})
       return;
     }
+  }
+
+  const restartFunction = () => {
+    setInputPosition({attempt:0, letterPosition:0})
+    setDisabledLetters([]);
+    setAlmostLetters([]);
+    setCorrectLetters([]);
+    setGameOver({gameOver: false, guessedWord: false});
+    setAnswer(null);
+    setAttempts(6);
+    setAnsLength(5);
+    setGameStart(false);
+    setBoard(null);
   }
   
   useEffect(() => {
@@ -93,7 +106,8 @@ function App() {
         ansLength,
         setAnsLength,
         gameStart,
-        setGameStart
+        setGameStart,
+        restartFunction
       }}>
         {gameStart? <Board/>:<Menu/>}
         {gameOver.gameOver? <GameOver/>:<Keyboard/>}
