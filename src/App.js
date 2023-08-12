@@ -13,59 +13,57 @@ function App() {
   const [almostLetters, setAlmostLetters] = useState([])
   const [correctLetters, setCorrectLetters] = useState([])
   const [gameOver, setGameOver] = useState({gameOver: false, guessedWord: false});
-  const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState(null);
   const [attempts, setAttempts] = useState(6);
   const [ansLength, setAnsLength] = useState(5);
   const [gameStart, setGameStart] = useState(false);
   const [board, setBoard] = useState(null);
   
-  // const onSelectLetter = (keyValue) => {
-  //   if (inputPosition.letterPosition > 4) return;
-  //   const newBoard = [...board];
-  //   newBoard[inputPosition.attempt][inputPosition.letterPosition] = keyValue
-  //   setBoard(newBoard);
-  //   setInputPosition({...inputPosition,letterPosition:inputPosition.letterPosition+1})
-  // }
+  const onSelectLetter = (keyValue) => {
+    if (inputPosition.letterPosition > 4) return;
+    const newBoard = [...board];
+    newBoard[inputPosition.attempt][inputPosition.letterPosition] = keyValue
+    setBoard(newBoard);
+    setInputPosition({...inputPosition,letterPosition:inputPosition.letterPosition+1})
+  }
   
-  // const onDelete = () => {
-  //   if (inputPosition.letterPosition === 0) return;
-  //   const newBoard = [...board];
-  //   newBoard[inputPosition.attempt][inputPosition.letterPosition-1] = "";
-  //   setBoard(newBoard);
-  //   setInputPosition({...inputPosition,letterPosition:inputPosition.letterPosition-1})
-  // }
+  const onDelete = () => {
+    if (inputPosition.letterPosition === 0) return;
+    const newBoard = [...board];
+    newBoard[inputPosition.attempt][inputPosition.letterPosition-1] = "";
+    setBoard(newBoard);
+    setInputPosition({...inputPosition,letterPosition:inputPosition.letterPosition-1})
+  }
   
-  // const onEnter = () => {
-  //   if (inputPosition.letterPosition !== 5) return;
-  //   let currentWord = "";
-  //   for (let i = 0; i < 5; i ++) {
-  //     currentWord += board[inputPosition.attempt][i]
-  //   }
+  const onEnter = () => {
+    if (inputPosition.letterPosition !== 5) return;
+    let currentWord = "";
+    for (let i = 0; i < 5; i ++) {
+      currentWord += board[inputPosition.attempt][i]
+    }
 
-  //   setInputPosition({attempt: inputPosition.attempt + 1, letterPosition: 0})
+    setInputPosition({attempt: inputPosition.attempt + 1, letterPosition: 0})
     
-  //   if (currentWord === answer) {
-  //     setGameOver({gameOver:true, guessedWord: true})
-  //     return;
-  //   }
-  //   if (inputPosition.attempt === board.length - 1) {
-  //     setGameOver({gameOver:true, guessedWord: false})
-  //     return;
-  //   }
-  // }
+    if (currentWord === answer) {
+      setGameOver({gameOver:true, guessedWord: true})
+      return;
+    }
+    if (inputPosition.attempt === board.length - 1) {
+      setGameOver({gameOver:true, guessedWord: false})
+      return;
+    }
+  }
   
   useEffect(() => {
     setBoard(boardDefault(attempts, ansLength))
     return;
   },[attempts, ansLength, gameStart])
 
-  console.log(board)
-
   useEffect(() => {
-    fetch("https://random-word-api.vercel.app/api?words=1&length=5&type=uppercase")
+    fetch(`https://random-word-api.vercel.app/api?words=1&length=${ansLength}&type=uppercase`)
     .then((response) => {return response.json()})
     .then((answer) => {setAnswer(answer[0])})
-  }, [])
+  }, [ansLength, gameStart])
 
   
   return (
@@ -78,9 +76,9 @@ function App() {
         setBoard, 
         inputPosition, 
         setInputPosition, 
-        // onSelectLetter, 
-        // onDelete, 
-        // onEnter, 
+        onSelectLetter, 
+        onDelete, 
+        onEnter, 
         answer, 
         disabledLetters, 
         setDisabledLetters, 
