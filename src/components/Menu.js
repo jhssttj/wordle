@@ -4,7 +4,7 @@ import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from 'react-icons/fa'
 
 function Menu() {
 
-  const { attempts, setAttempts, ansLength, setAnsLength } = useContext(AppContext);
+  const { attempts, setAttempts, ansLength, setAnsLength, setGameStart } = useContext(AppContext);
   
   const nextAnsLength = () => {
     setAnsLength(ansLength===8?3:ansLength+1);
@@ -38,7 +38,7 @@ function Menu() {
             <FaArrowAltCircleRight onClick={nextAttemptLength}/>
           </div>
         </div>
-        <button>PLAY</button>
+        <button onClick={setGameStart(true)}>PLAY</button>
     </div>
   )
 }

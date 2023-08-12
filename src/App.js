@@ -18,6 +18,7 @@ function App() {
   const [answer, setAnswer] = useState("");
   const [attempts, setAttempts] = useState(6);
   const [ansLength, setAnsLength] = useState(5);
+  const [gameStart, setGameStart] = useState(false);
 
   const onSelectLetter = (keyValue) => {
     if (inputPosition.letterPosition > 4) return;
@@ -86,6 +87,8 @@ function App() {
         setAttempts,
         ansLength,
         setAnsLength,
+        gameStart,
+        setGameStart
       }}>
         <Menu/>
         <Board/>
