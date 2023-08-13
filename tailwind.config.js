@@ -18,6 +18,11 @@ module.exports = {
       },
       animation: {
         flip: 'flip 500ms linear forwards'
+      },
+      screens: {
+        md:'1060px',
+        sm:'768px',
+        xs:'480px'
       }
     },
   },
