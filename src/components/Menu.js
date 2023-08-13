@@ -7,7 +7,7 @@ function Menu() {
   const { attempts, setAttempts, ansLength, setAnsLength, setGameStart } = useContext(AppContext);
 
   const selectionDivClass = "flex flex-col items-center text-2xl gap-2 w-full"
-  const selectorDivClass = "flex justify-between w-1/2"
+  const selectorDivClass = "flex justify-between sm:w-1/2 w-3/4"
   const selectorValueClass = "font-bold"
   const iconClass = "w-[35px] h-[35px] text-green hover:cursor-pointer hover:opacity-90 "
   
@@ -26,7 +26,7 @@ function Menu() {
   }
 
   return (
-    <div className="rounded-lg flex flex-col items-center my-8 bg-lgray p-2 justify-center gap-2 md:w-1/3 sm:w-3/4">
+    <div className="rounded-lg flex flex-col items-center my-8 bg-lgray p-2 justify-center gap-2 md:w-1/3 sm:w/1/2 w-3/4">
       <h1 className="text-2xl font-bold text-center mt-4">Get {attempts} chances to guess a {ansLength} letter word. </h1>
 
       <div className="border-2 border-black w-3/4"></div>
