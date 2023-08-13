@@ -80,9 +80,9 @@ function App() {
 
   
   return (
-    <div className="App flex flex-col items-center h-screen bg-lgreen">
+    <div className="App flex flex-col items-center h-screen bg-xlgreen">
       <nav className="border-green border-b-2 bg-green w-full h-[50px] flex justify-center items-center">
-        <h1 className="h-full text-4xl text-white font-bold">Wordle</h1>
+        <h1 className="h-full text-4xl text-xlgreen font-bold">Wordle</h1>
       </nav>
       <AppContext.Provider value={{
         board, 
