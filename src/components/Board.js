@@ -9,7 +9,7 @@ function Board() {
   //Render rows for letters to go in
   const renderRows = () => {
     const rows = board.map((row, rowIndex) => {
-      return <div key={rowIndex} className="flex justify-content bg-red-300 items-center border-2 border-black">{renderLetters(row, rowIndex)}</div>
+      return <div key={rowIndex} className="flex justify-center items-center">{renderLetters(row, rowIndex)}</div>
     })
     
     return rows;
@@ -23,7 +23,7 @@ function Board() {
   }
 
   return (
-    <div className="board border-2 border-black h-auto w-auto flex flex-col m-8 ">
+    <div className="h-auto w-auto flex flex-col m-8 ">
         {renderRows()}
       <div className="row"></div>
     </div>

@@ -7,7 +7,7 @@ function Letter({letter, letterPosition, attemptValue}) {
   const currentAttempt = inputPosition.attempt;
   const correct = answer[letterPosition] === letter;
   const almost = !correct && letter !== "" && answer.includes(letter);
-  const letterStatus = currentAttempt > attemptValue && (  correct ? "bg-green" : almost ? "bg-yellow" : "bg-gray");
+  const letterStatus = currentAttempt > attemptValue && (  correct ? "bg-green border-green" : almost ? "bg-yellow border-yellow" : "bg-gray border-gray");
   const animationStatus = currentAttempt > attemptValue ? 'animate-flip': "";
   const animationID = currentAttempt > attemptValue ? `Animation${letterPosition}`:"";
 
@@ -24,7 +24,9 @@ function Letter({letter, letterPosition, attemptValue}) {
   },[currentAttempt])
 
   return (
-    <div id={`${animationID}`}className={`border-2 border-gray rounded-lg font-bold text-xl m-1 min-h-[50px] min-w-[50px] ${letterStatus} ${animationStatus}`}>
+    <div id={`${animationID}`}className={
+      `border-2 rounded-lg font-bold m-1 sm:text-xl xs:text-lg text-sm sm:h-[50px] sm:w-[50px] xs:h-[40px] xs:w-[40px] xxs:h-[30px] xxs:w-[30px] h-[20px] w-[20px] flex justify-center items-center
+    ${letterStatus} ${animationStatus}`}>
       {letter}
     </div>
   )
