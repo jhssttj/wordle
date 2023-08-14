@@ -110,7 +110,7 @@ function App() {
         restartFunction
       }}>
         {gameStart?
-          <div>
+          <div className="border-2 border-black">
             <Board/>
             {gameOver.gameOver? <GameOver/>:<Keyboard/>}
           </div> 

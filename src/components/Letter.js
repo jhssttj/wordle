@@ -24,7 +24,7 @@ function Letter({letter, letterPosition, attemptValue}) {
   },[currentAttempt])
 
   return (
-    <div id={`${animationID}`}className={`border-2 border-black grid m-1 min-h-[100px] min-w-[100px] items-center flex justify-center ${letterStatus} ${animationStatus}`}>
+    <div id={`${animationID}`}className={`border-2 border-gray rounded-lg font-bold text-xl m-1 min-h-[50px] min-w-[50px] ${letterStatus} ${animationStatus}`}>
       {letter}
     </div>
   )

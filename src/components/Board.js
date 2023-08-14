@@ -9,7 +9,7 @@ function Board() {
   //Render rows for letters to go in
   const renderRows = () => {
     const rows = board.map((row, rowIndex) => {
-      return <div key={rowIndex} className="flex justify-content">{renderLetters(row, rowIndex)}</div>
+      return <div key={rowIndex} className="flex justify-content bg-red-300 items-center border-2 border-black">{renderLetters(row, rowIndex)}</div>
     })
     
     return rows;
