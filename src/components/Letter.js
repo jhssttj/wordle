@@ -26,7 +26,7 @@ function Letter({letter, letterPosition, attemptValue}) {
 
   return (
     <div id={`${animationID}`}className={
-      `border-2 rounded-lg font-bold m-1 
+      `border-2 border-gray rounded-lg font-bold m-1 
       flex justify-center items-center
       sm:text-xl xs:text-lg text-sm 
       sm:h-[50px] sm:w-[50px] 
