@@ -30,7 +30,7 @@ function Keyboard() {
   }
 
   return (
-    <div className="border-2 border-black flex flex-col items-center" onKeyUp={handleKey}>
+    <div className="flex flex-col items-center" onKeyUp={handleKey}>
       <div className="flex space-evenly">
         {renderKeys(keyRow1)}
       </div>

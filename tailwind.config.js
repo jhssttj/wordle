@@ -8,6 +8,7 @@ module.exports = {
         yellow: "#E3B448",
         gray: "#787C7E",
         lgray: "#E6E6FA",
+        xlgray: "#C3C3D6",
         xlgreen:"#F4FDFF"
       },
       keyframes: {
