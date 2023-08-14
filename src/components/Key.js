@@ -17,13 +17,16 @@ function Key({keyValue, disabled, almost, correct}) {
     }
   }
 
-  let smallKeyCSS = keyValue==="ENTER"? "text-xs":""
+  let smallKeyCSS = keyValue==="ENTER"||keyValue==="DELETE"
+  ? "text-[0.6rem] h-[40px] w-[30px]"
+  :"text-[0.8rem] h-[40px] w-[15px]"
   let disabledKeyCSS = disabled? "bg-gray":""
   let almostKeyCSS = almost && !correct? "bg-yellow":""
   let correctKeyCSS = correct? "bg-green":""
 
   return (
-    <div className={`bg-lgray hover:cursor-pointer hover:bg-xlgray rounded-lg font-bold m-1 items-center flex justify-center min-h-[50px] min-w-[50px] ${smallKeyCSS} ${disabledKeyCSS} ${almostKeyCSS} ${correctKeyCSS}`}
+    <div className={`bg-lgray hover:cursor-pointer hover:bg-xlgray rounded-lg font-bold m-1 items-center flex justify-center 
+      ${smallKeyCSS} ${disabledKeyCSS} ${almostKeyCSS} ${correctKeyCSS}`}
     onClick={selectLetter}>
       {displayKey}
     </div>
