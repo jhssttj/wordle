@@ -3,14 +3,14 @@ import { AppContext } from '../App'
 
 
 function Letter({letter, letterPosition, attemptValue}) {
-  const {answer, inputPosition, setDisabledLetters,setAlmostLetters, setCorrectLetters, ansLength} = useContext(AppContext);
+  const {answer, inputPosition, setDisabledLetters,setAlmostLetters, setCorrectLetters, ansLength, attempts} = useContext(AppContext);
   const currentAttempt = inputPosition.attempt;
   const correct = answer[letterPosition] === letter;
   const almost = !correct && letter !== "" && answer.includes(letter);
   const letterStatus = currentAttempt > attemptValue && (  correct ? "bg-green border-green" : almost ? "bg-yellow border-yellow" : "bg-gray border-gray");
   const animationStatus = currentAttempt > attemptValue ? 'animate-flip': "";
   const animationID = currentAttempt > attemptValue ? `Animation${letterPosition}`:"";
-  const xsLetterSizing = ansLength > 5? "xs:h-[40px] xs:w-[40px] xxs:h-[30px] xxs:w-[30px] h-[20px] w-[20px]":"xs:h-[50px] xs:w-[50px] xxs:h-[40px] xxs:w-[40px] h-[30px] w-[30px]"
+  const xsLetterSizing = ansLength > 5 || attempts > 9? "xs:h-[40px] xs:w-[40px] xxs:h-[30px] xxs:w-[30px] h-[20px] w-[20px]":"xs:h-[50px] xs:w-[50px] xxs:h-[40px] xxs:w-[40px] h-[30px] w-[30px]"
 
   useEffect(() => {
     if (letter !== "" && !correct && !almost) {
