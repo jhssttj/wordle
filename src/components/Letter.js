@@ -22,6 +22,7 @@ function Letter({letter, letterPosition, attemptValue}) {
     if (almost && !correct) {
       setAlmostLetters((prev) => [...prev, letter]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[currentAttempt])
 
   return (
