@@ -53,6 +53,9 @@ function Menu() {
         onClick={()=>setGameStart(true)}>
         START
       </button>
+      <div className="flex justify-end ">
+        <p>Created by <a className="underline text-blue-600 hover:text-blue-800" href="https://github.com/jhssttj">Kevin Lee</a></p>
+      </div>
     </div>
   )
 }
