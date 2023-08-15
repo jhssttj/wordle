@@ -32,7 +32,7 @@ function Menu() {
       <div className="border-2 border-black w-3/4"></div>
 
       <div className={selectionDivClass}>
-        <h1>Word Length</h1>
+        <h1 className="xxs:text-2xl text-xl">Word Length</h1>
         <div className={selectorDivClass}>
           <FaArrowAltCircleLeft className={iconClass} onClick={prevAnsLength}/>
           <p className={selectorValueClass}>{ansLength}</p>
@@ -41,7 +41,7 @@ function Menu() {
       </div>
 
       <div className={selectionDivClass}>
-        <h1>Chances</h1>
+        <h1 className="xxs:text-2xl text-xl">Chances</h1>
         <div className={selectorDivClass}>
           <FaArrowAltCircleLeft className={iconClass} onClick={prevAttmptLength}/>
           <p className={selectorValueClass}>{attempts}</p>

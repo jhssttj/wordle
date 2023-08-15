@@ -8,8 +8,8 @@ function GameOver() {
   const message = gameOver.guessedWord? "Correct":"Incorrect"
 
   return (
-    <div className="">
-      <h3>{message}</h3>
+    <div className="border-2 border-black flex flex-col items-center">
+      <h3 className="text-xl font-bold">{message}</h3>
       <h1>Correct word was {answer}</h1>
       {gameOver.guessedWord && <h1>You guessed in {currentAttempt} attempts</h1>}
       <button onClick={()=> restartFunction()}>Restart?</button>
